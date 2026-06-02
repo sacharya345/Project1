@@ -6,89 +6,150 @@
 
 body {
     font-family: "Mukta", sans-serif;
-    background-color: #f8f9fa;
-    color: #212529;
+    background-color: #f8fafc;
+    color: #1e293b;
 }
 
 h1, h2, h3, h4, h5 {
     font-family: "Kenia", cursive;
+    color: #0f172a;
+}
+
+.navbar {
+    background: #0f172a !important;
 }
 
 .logo {
     font-size: 1.8rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    color: #fff;
+    transition: 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
 }
 
-header {
-    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+.logo:hover {
+    transform: scale(1.08) rotate(-2deg);
+    color: #a5b4fc;
+    text-shadow: 0 0 15px rgba(99,102,241,0.6);
+}
+
+.nav-anim {
+    position: relative;
+    color: #e2e8f0 !important;
+    transition: 0.3s;
+}
+
+.nav-anim::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #6366f1;
+    transition: 0.3s;
+}
+
+.nav-anim:hover {
+    color: #ffffff !important;
+}
+
+.nav-anim:hover::after {
+    width: 100%;
+}
+
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #4f46e5, #0f172a),
+                url("https://www.transparenttextures.com/patterns/cubes.png");
+    background-blend-mode: overlay;
+}
+
+.hero h1 {
     color: white;
 }
 
-header h1 {
-    font-size: 3rem;
+.hero p {
+    color: #c7d2fe;
 }
 
-header p {
-    font-size: 1.2rem;
-    margin-top: 10px;
+.hero-img {
+    width: 220px;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: scale(1.05);
+    border-color: #a5b4fc;
 }
 
 .btn-primary {
-    background-color: #0d6efd;
+    background-color: #4f46e5;
     border: none;
     transition: 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #084298;
+    background-color: #6366f1;
     transform: translateY(-2px);
 }
 
-#skills .border {
+.skill-box {
+    background: white;
+    border: 1px solid #e2e8f0 !important;
+    transition: 0.3s ease;
+    border-radius: 12px;
+}
+
+.skill-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(79,70,229,0.15);
+    border-color: #6366f1 !important;
+}
+
+.project-card {
+    border: none;
+    border-radius: 15px;
     transition: 0.3s ease;
     background: white;
 }
 
-#skills .border:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
 
-.card {
-    transition: 0.3s ease;
-    border: none;
+fieldset {
+    background: white;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+legend {
+    color: #4f46e5;
+    font-weight: bold;
 }
 
-#contact {
-    background-color: #ffffff;
-}
-
-.form-control:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 8px rgba(13,110,253,0.3);
+footer {
+    background: #0f172a !important;
 }
 
 footer a {
+    color: #c7d2fe;
     font-size: 1.3rem;
     transition: 0.3s;
 }
 
 footer a:hover {
-    color: #0d6efd !important;
+    color: #6366f1;
     transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
+/* SMOOTH SCROLL */
+html {
+    scroll-behavior: smooth;
 }
