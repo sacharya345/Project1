@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Mukta", sans-serif;
     background-color: #f8fafc;
@@ -15,6 +19,7 @@ h1, h2, h3, h4, h5 {
     color: #0f172a;
 }
 
+/* NAVBAR */
 .navbar {
     background: #0f172a !important;
 }
@@ -22,22 +27,20 @@ h1, h2, h3, h4, h5 {
 .logo {
     font-size: 1.8rem;
     letter-spacing: 2px;
-    color: #fff;
-    transition: 0.3s ease;
+    color: #fff !important;
+    transition: all 0.4s ease;
     display: inline-block;
-    cursor: pointer;
 }
 
 .logo:hover {
-    transform: scale(1.08) rotate(-2deg);
-    color: #a5b4fc;
-    text-shadow: 0 0 15px rgba(99,102,241,0.6);
+    transform: translateY(-3px) scale(1.1);
+    color: #a5b4fc !important;
+    text-shadow: 0 0 10px #6366f1, 0 0 25px #4f46e5;
 }
 
 .nav-anim {
-    position: relative;
     color: #e2e8f0 !important;
-    transition: 0.3s;
+    position: relative;
 }
 
 .nav-anim::after {
@@ -45,97 +48,160 @@ h1, h2, h3, h4, h5 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0%;
     height: 2px;
+    width: 0%;
     background: #6366f1;
     transition: 0.3s;
-}
-
-.nav-anim:hover {
-    color: #ffffff !important;
 }
 
 .nav-anim:hover::after {
     width: 100%;
 }
 
+/* HERO */
 .hero {
-    min-height: 90vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #4f46e5, #0f172a),
                 url("https://www.transparenttextures.com/patterns/cubes.png");
     background-blend-mode: overlay;
 }
 
-.hero h1 {
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
     color: white;
 }
 
-.hero p {
+.hero-subtitle {
+    font-size: 1.4rem;
     color: #c7d2fe;
+}
+
+.hero-desc {
+    color: #e0e7ff;
+    max-width: 500px;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.hero-buttons .btn {
+    transition: 0.3s ease;
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-3px);
+}
+
+/* PROFILE */
+.profile-wrapper {
+    display: inline-block;
+    padding: 6px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #6366f1, #a855f7, #ec4899, #06b6d4);
+    background-size: 300% 300%;
+    animation: gradientRotate 5s linear infinite;
+}
+
+.profile-wrapper:hover {
+    animation: gradientRotate 1.5s linear infinite;
 }
 
 .hero-img {
     width: 220px;
+    height: 220px;
     border-radius: 50%;
-    border: 5px solid rgba(255,255,255,0.3);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: 0.3s ease;
+    object-fit: cover;
 }
 
-.hero-img:hover {
-    transform: scale(1.05);
-    border-color: #a5b4fc;
+@keyframes gradientRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.btn-primary {
-    background-color: #4f46e5;
-    border: none;
-    transition: 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #6366f1;
-    transform: translateY(-2px);
-}
-
+/* SKILLS */
 .skill-box {
+    font-weight: 600;
     background: white;
-    border: 1px solid #e2e8f0 !important;
-    transition: 0.3s ease;
     border-radius: 12px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .skill-box:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(79,70,229,0.15);
-    border-color: #6366f1 !important;
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.25);
+    color: #4f46e5;
 }
 
+.skill-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(99, 102, 241, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.skill-box:hover::before {
+    left: 100%;
+}
+
+/* PROJECTS (NEW ANIMATION UPGRADE) */
 .project-card {
     border: none;
-    border-radius: 15px;
-    transition: 0.3s ease;
+    border-radius: 16px;
+    transition: all 0.4s ease;
     background: white;
+    overflow: hidden;
+    position: relative;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
-fieldset {
-    background: white;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 12px;
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(99, 102, 241, 0.15),
+        transparent
+    );
+    transition: 0.6s;
 }
 
-legend {
-    color: #4f46e5;
-    font-weight: bold;
+.project-card:hover::before {
+    left: 100%;
 }
 
+/* BUTTON HOVER INSIDE PROJECT */
+.project-card .btn {
+    transition: 0.3s ease;
+}
+
+.project-card .btn:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
 footer {
-    background: #0f172a !important;
+    background: #0f172a;
 }
 
 footer a {
@@ -147,9 +213,4 @@ footer a {
 footer a:hover {
     color: #6366f1;
     transform: scale(1.2);
-}
-
-/* SMOOTH SCROLL */
-html {
-    scroll-behavior: smooth;
 }
